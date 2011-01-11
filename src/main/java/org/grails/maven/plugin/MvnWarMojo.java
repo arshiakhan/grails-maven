@@ -38,7 +38,7 @@ public class MvnWarMojo extends AbstractGrailsMojo {
     protected File warFile;
 
     /**
-    * @parameter expression="${warFileName}"
+    * @parameter expression="${warFileName}" default-value="${project.artifactId}-${project.version}.war"
     */
     private String warFileName;
 
