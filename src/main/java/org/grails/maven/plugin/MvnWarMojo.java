@@ -38,12 +38,18 @@ public class MvnWarMojo extends AbstractGrailsMojo {
     protected File warFile;
 
     /**
+    * @parameter expression="${warFileName}"
+    */
+    private String warFileName;
+
+
+    /**
      * Executes the MvnWarMojo on the current project.
      *
      * @throws MojoExecutionException if an error occured while building the webapp
      */
     public void execute() throws MojoExecutionException, MojoFailureException {
-        String warFileName = project.getArtifactId() + "-" + project.getVersion() + ".war";
+        //String warFileName = project.getArtifactId() + "-" + project.getVersion() + ".war";
         warFile = new File(project.getBuild().getDirectory(), warFileName);
 
         runGrails("War", warFile.toString(), true);
